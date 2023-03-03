@@ -15,10 +15,6 @@ interface Cycle {
   finishedDate?: Date
 }
 
-/*
-  ! Esse é um teste de branchs
-*/
-
 interface CyclesContextType {
   cycles: Cycle[]
   activeCycle: Cycle | undefined
