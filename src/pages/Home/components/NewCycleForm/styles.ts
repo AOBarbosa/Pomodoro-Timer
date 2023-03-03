@@ -41,6 +41,51 @@ export const TaskInput = styled(BaseInput)`
   }
 `
 
+export const MinutesContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
 export const MinutesAmountInput = styled(BaseInput)`
+  input[type='number']::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  -moz-appearance: textfield;
+
   width: 4rem;
+  display: flex;
+  align-items: center;
+
+  &:focus {
+    box-shadow: none;
+    border-color: ${(props) => props.theme['green-500']};
+  }
+
+  &::placeholder {
+    color: ${(props) => props.theme['gray-500']};
+  }
+`
+
+const BaseInputButton = styled.button`
+  width: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const IncreaseInputButton = styled(BaseInputButton)`
+  background: transparent;
+  color: ${(props) => props.theme['gray-500']};
+  border: 0;
+  margin-left: -1.2rem;
+`
+
+export const DecreaseInputButton = styled(BaseInputButton)`
+  background: transparent;
+  color: ${(props) => props.theme['gray-500']};
+  border: 0;
+  margin-right: -1.2rem;
 `

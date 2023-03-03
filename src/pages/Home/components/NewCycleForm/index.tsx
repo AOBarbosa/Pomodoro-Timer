@@ -1,7 +1,15 @@
-import { FormContainer, MinutesAmountInput, TaskInput } from './styles'
+import {
+  DecreaseInputButton,
+  FormContainer,
+  IncreaseInputButton,
+  MinutesAmountInput,
+  MinutesContainer,
+  TaskInput,
+} from './styles'
 import { useContext } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { CyclesContext } from '../../../../contexts/CyclesContext'
+import { Minus, Plus } from 'phosphor-react'
 
 export function NewCycleForm() {
   const { activeCycle } = useContext(CyclesContext)
@@ -26,16 +34,24 @@ export function NewCycleForm() {
       </datalist>
 
       <label htmlFor="minutesAmount">durante</label>
-      <MinutesAmountInput
-        type="number"
-        id="minutesAmount"
-        placeholder="00"
-        step={5}
-        min={5}
-        max={60}
-        disabled={!!activeCycle}
-        {...register('minutesAmount', { valueAsNumber: true })}
-      />
+      <MinutesContainer>
+        <DecreaseInputButton>
+          <Minus size={16} />
+        </DecreaseInputButton>
+        <MinutesAmountInput
+          type="number"
+          id="minutesAmount"
+          placeholder="00"
+          step={5}
+          min={5}
+          max={60}
+          disabled={!!activeCycle}
+          {...register('minutesAmount', { valueAsNumber: true })}
+        />
+        <IncreaseInputButton>
+          <Plus size={16} />
+        </IncreaseInputButton>
+      </MinutesContainer>
 
       <span>minutos.</span>
     </FormContainer>
