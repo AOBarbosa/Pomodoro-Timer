@@ -57,6 +57,8 @@ export function Countdow() {
   useEffect(() => {
     if (activeCycle) {
       document.title = `${minutes}:${seconds}`
+    } else {
+      document.title = 'Pomodor Timer'
     }
   }, [minutes, seconds, activeCycle])
 
