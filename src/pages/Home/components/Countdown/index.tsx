@@ -55,11 +55,9 @@ export function Countdow() {
 
   //* When theres an active cycle, the title of the page changes to the countdown
   useEffect(() => {
-    if (activeCycle) {
-      document.title = `${minutes}:${seconds}`
-    } else {
-      document.title = 'Pomodor Timer'
-    }
+    activeCycle
+      ? (document.title = `${minutes}:${seconds}`)
+      : (document.title = 'Pomodor Timer')
   }, [minutes, seconds, activeCycle])
 
   return (
